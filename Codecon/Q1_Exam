@@ -1,0 +1,71 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'exam' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY v as parameter.
+#
+def result1(ip1, idx1):
+    res = 0
+    if idx1 != 0:
+        for ik in xrange(idx1):
+            if ip1[ik] == 1:
+                res += 1
+            else:
+                res = res - 1
+        return res
+    else:
+        return res
+
+
+def result2(ip2, idx2):
+    res = 0
+    if idx2 != 0:
+        for ik in xrange(idx2):
+            if ip2[ik] == 1:
+                res += 1
+            else:
+                res = res - 1
+        return res
+    else:
+        return res
+
+def exam(v):
+    k = 0
+    for gh in xrange(len(v)):
+        my_result = result1(v, k)
+        friend_result = result2(v[::-1], len(v) - k)
+        if my_result > friend_result:
+            break
+        else:
+            k = k + 1
+    return k
+
+
+if __name__ == '__main__':
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    v_count = int(raw_input().strip())
+
+    v = []
+
+    for _ in xrange(v_count):
+        v_item = int(raw_input().strip())
+        v.append(v_item)
+
+    result = exam(v)
+
+    print result
+
+    # fptr.write(str(result) + '\n')
+
+    # fptr.close()
