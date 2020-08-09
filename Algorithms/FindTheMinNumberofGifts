@@ -1,0 +1,25 @@
+def calc_min_num_of_gifts(in_list):
+    '''
+    Calculates the minimum number of gits to be assigned per employee 
+    based on the rank
+    Complexity: O(N)
+    '''
+    gifts = [0]*len(in_list)
+    for index, elem in enumerate(in_list):
+        if index !=0 and index != len(in_list) - 1:
+            # greater rank than their neighbors
+            if in_list[index] > in_list[index-1] or in_list[index] > in_list[index+1]:
+                gifts[index] = gifts[index-1] + 1
+            else:
+                gifts[index] = 1
+        if index == 0:
+            if in_list[index] <= in_list[index + 1]:
+                gifts[index] = 1
+            else:
+                gifts[index] = 2
+        if index == len(in_list) - 1 :
+            if in_list[index] <= in_list[index-1]:
+                gifts[index] = 1
+            else:
+                gifts[index] = gifts[index - 1] + 1
+    return sum(gifts)
