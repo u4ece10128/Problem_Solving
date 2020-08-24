@@ -23,10 +23,11 @@ def min_distance(arr, num1, num2):
             if ~adjacent:
                 return -2
 
+
 def solution(A):
     A.sort()
     return min_distance(A, 3, 3)
 
 
 A = [0, 3, 3, 7, 5, 3, 11, 1]
-print solution(A)
+print(solution(A))

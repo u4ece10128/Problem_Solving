@@ -17,4 +17,4 @@ def solution(A):
 
 
 A = [0]
-print solution(A)
+print(solution(A))
